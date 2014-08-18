@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweegle.Presentation.WebClient", "Tweegle.Presentation.WebClient\Tweegle.Presentation.WebClient.csproj", "{9DDD711F-8A97-4523-96C1-854A6759FC49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweegle.Infrastructure.Twitter", "Tweegle.Infrastructure.Twitter\Tweegle.Infrastructure.Twitter.csproj", "{445A9CFB-FFA8-4046-BEB9-FDD88D84F542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweegle.Infrastructure.Configuration", "Tweegle.Infrastructure.Configuration\Tweegle.Infrastructure.Configuration.csproj", "{7E4B5B84-F17F-431F-BE8D-0776E59E9A4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9DDD711F-8A97-4523-96C1-854A6759FC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DDD711F-8A97-4523-96C1-854A6759FC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DDD711F-8A97-4523-96C1-854A6759FC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445A9CFB-FFA8-4046-BEB9-FDD88D84F542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445A9CFB-FFA8-4046-BEB9-FDD88D84F542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445A9CFB-FFA8-4046-BEB9-FDD88D84F542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445A9CFB-FFA8-4046-BEB9-FDD88D84F542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4B5B84-F17F-431F-BE8D-0776E59E9A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E4B5B84-F17F-431F-BE8D-0776E59E9A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E4B5B84-F17F-431F-BE8D-0776E59E9A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E4B5B84-F17F-431F-BE8D-0776E59E9A4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
