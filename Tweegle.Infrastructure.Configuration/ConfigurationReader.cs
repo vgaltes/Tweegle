@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace Tweegle.Infrastructure.Configuration
 {
@@ -6,28 +7,34 @@ namespace Tweegle.Infrastructure.Configuration
     {
         public string GetScreenName()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.AppSettings["ScreenName"];
         }
 
 
         public string GetOAuthTokenSecret()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.AppSettings["OAuthTokenSecret"];
         }
 
         public string GetOAuthToken()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.AppSettings["OAuthToken"];
         }
 
         public string GetOAuthConsumerSecret()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.AppSettings["OAuthConsumerSecret"];
         }
 
         public string GetOAuthConsumerKey()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.AppSettings["OAuthConsumerKey"];
+        }
+
+
+        public string GetConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["TweegleMongoDB"].ConnectionString;
         }
     }
 }

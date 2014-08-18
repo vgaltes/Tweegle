@@ -17,5 +17,7 @@ namespace Tweegle.Infrastructure.Configuration
         string GetOAuthConsumerSecret();
 
         string GetOAuthConsumerKey();
+
+        string GetConnectionString();
     }
 }

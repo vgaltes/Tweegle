@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,10 +50,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tweegle.Infrastructure.Configuration\Tweegle.Infrastructure.Configuration.csproj">
+      <Project>{7e4b5b84-f17f-431f-be8d-0776e59e9a4d}</Project>
+      <Name>Tweegle.Infrastructure.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tweegle.Infrastructure.DTOs\Tweegle.Infrastructure.DTOs.csproj">
       <Project>{a5c7dbbd-aa3e-431f-983d-4255dcbe2c5c}</Project>
       <Name>Tweegle.Infrastructure.DTOs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
