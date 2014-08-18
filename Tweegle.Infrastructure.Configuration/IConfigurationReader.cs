@@ -9,5 +9,13 @@ namespace Tweegle.Infrastructure.Configuration
     public interface IConfigurationReader
     {
         string GetScreenName();
+
+        string GetOAuthTokenSecret();
+
+        string GetOAuthToken();
+
+        string GetOAuthConsumerSecret();
+
+        string GetOAuthConsumerKey();
     }
 }

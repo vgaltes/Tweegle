@@ -8,5 +8,26 @@ namespace Tweegle.Infrastructure.Configuration
         {
             throw new NotImplementedException();
         }
+
+
+        public string GetOAuthTokenSecret()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetOAuthToken()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetOAuthConsumerSecret()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetOAuthConsumerKey()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
