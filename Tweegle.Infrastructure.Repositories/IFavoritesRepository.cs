@@ -8,5 +8,6 @@ namespace Tweegle.Infrastructure.Repositories
         void Insert(List<TwitterFavorite> favorites);
 
         void Empty();
+        List<TwitterFavorite> FindByText(string searchTerm);
     }
 }

@@ -1,0 +1,24 @@
+﻿@model Tweegle.Presentation.WebClient.Models.SearchResultViewModel
+
+
+@foreach (var item in Model.Items)
+{
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="favorite">
+                <div>
+                    <a href="@string.Format("http://twitter.com/{0}", item.AuthorScreenName)"><b>@item.AuthorName</b></a> <small>@item.AuthorScreenName</small>-<small>@item.CreatedAt</small>
+                </div>
+                <div>
+                    @Html.Raw(item.Text)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="footer-inner"></div>
+    </div>
+</div>

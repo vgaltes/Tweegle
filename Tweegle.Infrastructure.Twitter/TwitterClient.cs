@@ -10,36 +10,36 @@ namespace Tweegle.Infrastructure.Twitter
 {
     public class TwitterClient : ITwitterClient
     {
-        private readonly IConfigurationReader configuration;
+        private readonly IConfigurationReader _configuration;
 
-        private readonly IFavoritesRepository favoritesRepository;
+        private readonly IFavoritesRepository _favoritesRepository;
 
         public TwitterClient(IConfigurationReader configuration, IFavoritesRepository favoritesRepository)
         {
-            this.configuration = configuration;
-            this.favoritesRepository = favoritesRepository;
+            _configuration = configuration;
+            _favoritesRepository = favoritesRepository;
         }
 
         public void ImportAllFavorites()
         {
-            favoritesRepository.Empty();
+            _favoritesRepository.Empty();
 
-            string screenName = configuration.GetScreenName();
+            string screenName = _configuration.GetScreenName();
 
             var auth = new SingleUserAuthorizer
             {
                 CredentialStore = new SingleUserInMemoryCredentialStore
                 {
-                    ConsumerKey = configuration.GetOAuthConsumerKey(),
-                    ConsumerSecret = configuration.GetOAuthConsumerSecret(),
-                    AccessToken = configuration.GetOAuthToken(),
-                    AccessTokenSecret = configuration.GetOAuthTokenSecret()
+                    ConsumerKey = _configuration.GetOAuthConsumerKey(),
+                    ConsumerSecret = _configuration.GetOAuthConsumerSecret(),
+                    AccessToken = _configuration.GetOAuthToken(),
+                    AccessTokenSecret = _configuration.GetOAuthTokenSecret()
                 }
             };
 
             var twitterCtx = new TwitterContext(auth);
 
-            List<TwitterFavorite> favorites = new List<TwitterFavorite>();
+            var favorites = new List<TwitterFavorite>();
 
             var favsResponse = twitterCtx.Favorites
                 .Where(fav => fav.Type == FavoritesType.Favorites && fav.ScreenName == screenName)
@@ -49,9 +49,9 @@ namespace Tweegle.Infrastructure.Twitter
 
             favorites.AddRange(favsResponse);
 
-            while (favsResponse.Count >= 19)
+            while (favsResponse.Count > 0)
             {
-                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(1));
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(61));
                 favsResponse = twitterCtx.Favorites
                     .Where(fav => fav.Type == FavoritesType.Favorites && fav.ScreenName == screenName && fav.MaxID == favsResponse.Last().Id)
                     .Select(f => new TwitterFavorite(f.StatusID, f.Text, f.User.Name, f.User.ScreenNameResponse, f.CreatedAt,
@@ -66,7 +66,7 @@ namespace Tweegle.Infrastructure.Twitter
                 }
             }
 
-            favoritesRepository.Insert(favorites);
+            _favoritesRepository.Insert(favorites);
         }
     }
 }

@@ -7,30 +7,34 @@
         @Html.ActionLink("Import ALL favorites", "ImportAll", null, new { @class = "btn btn-default" })
     </div>
     @*<div class="col-md-2">
-        @Html.ActionLink("Import RECENT favorites", "ImportRecent", null, new { @class = "btn btn-default" })
-    </div>*@
+            @Html.ActionLink("Import RECENT favorites", "ImportRecent", null, new { @class = "btn btn-default" })
+        </div>*@
     <div class="clearfix visible-md-block"></div>
 </div>
 
-<div>
-    @using (Ajax.BeginForm(new AjaxOptions
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="header-inner">FAVORITES</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @using (Ajax.BeginForm("Search", null, new AjaxOptions
     {
         UpdateTargetId = "favorites",
         InsertionMode = InsertionMode.Replace,
-        OnComplete = "OnComplete",
-        Url = Url.Action("Search", new { page = 1 }),
-    }))
-    {
-        <div class="input-group col-md-8 col-md-offset-2">
-            <input type="text" id="searchTerm" name="searchTerm" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Search</button>
-            </span>
-        </div>
-    }
+        //OnComplete = "OnComplete",
+        Url = Url.Action("Search"),
+        HttpMethod = "Get"
+    }, new { @class = "" }))
+        {
+            <div class="form-group">
+                <input type="text" id="searchTerm" name="searchTerm" class="form-control no-border" placeholder="Search...">
+            </div>
+        }
+    </div>
 </div>
-
-<br />
 
 <div id="favorites">
 </div>

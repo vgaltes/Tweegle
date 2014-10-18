@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #C0DEED !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,13 +10,37 @@
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
 .width-100 {
     width: 100%;
+}
+
+.margin-left-5 {
+    margin-left: 5%;
+}
+
+.header-inner{
+    min-height: 20px;
+    padding: 12px;
+    background-color: #fff;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 5px 5px 0 0;
+}
+
+.footer-inner{
+    min-height: 20px;
+    padding: 12px;
+    background-color: #fff;
+    border-top: 1px solid #e1e8ed;
+    border-radius: 0 0 5px 5px;
+}
+
+.favorite {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.form-control.no-border{
+    border-radius: 0px;
+    border: 0px;
 }

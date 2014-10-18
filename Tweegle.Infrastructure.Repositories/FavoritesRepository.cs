@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using Tweegle.Infrastructure.Configuration;
 using Tweegle.Infrastructure.DTOs;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Tweegle.Infrastructure.Repositories
 {
@@ -37,6 +41,20 @@ namespace Tweegle.Infrastructure.Repositories
         {
             ConnectToDb();
             collection.RemoveAll();
+        }
+
+
+        public List<TwitterFavorite> FindByText(string searchTerm)
+        {
+            ConnectToDb();
+            
+            var query = Query<TwitterFavorite>.Matches( fav => fav.Text, 
+                new BsonRegularExpression(string.Format("/{0}/i", searchTerm)));
+
+            var results = collection.FindAs<TwitterFavorite>(query)
+                .OrderByDescending(fav => fav.Id);
+
+            return results.ToList();
         }
     }
 }
